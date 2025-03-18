@@ -10,6 +10,21 @@ pipeline {
                      sh './test.sh'
                   }
             }
+           stage('sshconnect') {
+              steps {
+                  sshagent(credentials: ['PK_EC2'])
+                      {
+                         sh """
+                           ssh ec2-user@3.236.242.10 'ls -a'
+                          """
+                       
+                      }
+                  
+
+              }
+
+
+           }
 
 
 
