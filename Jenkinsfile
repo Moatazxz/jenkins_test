@@ -16,6 +16,8 @@ pipeline {
                 sshagent(credentials: ['PK_EC2']) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ec2-user@18.232.54.212 'uname -a'
+                    ssh -o StrictHostKeyChecking=no ec2-user@18.232.54.212 'docker ps'
+                    
                     """
                 }
             }
