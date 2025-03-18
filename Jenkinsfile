@@ -13,7 +13,7 @@ pipeline {
 
            stage('Connect to EC2 and Run Command') {
             steps {
-                sshagent(credentials: [PK_EC2]) {
+                sshagent(credentials: ['PK_EC2']) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ec2-user@18.232.54.212 'uname -a'
                     """
