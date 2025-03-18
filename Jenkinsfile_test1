@@ -6,26 +6,11 @@ pipeline {
         stage('Run Script') {
             steps {
 
-                     sh 'chmod +x test.sh'  // Make script executable
-                     sh './test.sh'
+                     sh 'docker ps' 
                    
                   }
             }
-           stage('sshconnect') {
-              steps {
-                  sshagent(credentials: ['PK_EC2'])
-                      {
-                         sh """
-                           ssh -o StrictHostKeyChecking=no ec2-user@3.236.242.10 'ls -a'
-                          """
-                       
-                      }
-                  
-
-              }
-
-
-           }
+          
 
 
 
