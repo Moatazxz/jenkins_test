@@ -16,7 +16,7 @@ pipeline {
     stage ('connect to ec2')
      {
         steps {
-            sshagent(['mo']) {
+           sshagent (credentials: ['mo']) {
               sh '''
                    ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-28-48-80.eu-central-1.compute.amazonaws.com 'touch test1'
                  '''
