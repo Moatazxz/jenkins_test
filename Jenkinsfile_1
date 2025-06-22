@@ -13,6 +13,17 @@ pipeline {
             echo "${app_name}" 
         } 
      }
+    stage ('connect to ec2')
+     {
+        steps {
+            sshagent (credentials: ['ec2key']){
+              sh """
+                   ssh ubuntu@ec2-52-28-48-80.eu-central-1.compute.amazonaws.com 'touch test1'
+                 """
+            }
+        } 
+     }
+    
      
  }
     
