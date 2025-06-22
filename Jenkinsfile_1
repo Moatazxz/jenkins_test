@@ -10,6 +10,7 @@ pipeline {
         steps {
             sh 'chmod +x ./test.sh'
             sh './test.sh'
+            echo "${app_name}" 
         } 
      }
      
