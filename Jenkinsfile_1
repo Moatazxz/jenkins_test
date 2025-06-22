@@ -1,0 +1,24 @@
+pipeline {
+ agent any
+ environment {
+     app_name= "test jenkins"
+ } 
+ 
+ stages{
+     stage ('build')
+     {
+        steps {
+            sh 'chmod +x ./test.sh'
+            sh './test.sh'
+        } 
+     }
+     
+ }
+    
+    
+    
+    
+    
+    
+    
+}
